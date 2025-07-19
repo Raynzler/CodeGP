@@ -1,5 +1,7 @@
 # CodeSpeed ⚡
 
+![CI](https://github.com/Raynzler/CodeSpeed/workflows/CI/badge.svg)
+
 A fast typing test for programmers. Practice typing real code in multiple languages.
 
 ## Features
