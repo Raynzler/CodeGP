@@ -22,21 +22,22 @@ npm run dev
 ```
 Open http://localhost:3000
 ## How to Use     
--Pick a language
--Choose timer or code mode
--Start typing when ready
--View your stats
+
+- Pick a language
+- Choose timer or code mode
+- Start typing when ready
+- View your stats
 
 ## Shortcuts:
 
-Shift + Enter - New test
-Esc - Reset test
+- Shift + Enter - New test
+- Esc - Reset test
 
 ## Tech Stack
-Next.js 14
-TypeScript
-Tailwind CSS
-Framer Motion
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Framer Motion
 
 ## License
 MIT License
