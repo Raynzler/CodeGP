@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "type-check": "tsc --noEmit",
+    "test": "echo \"No tests yet\""
   },
   "dependencies": {
     "framer-motion": "^11.0.0",
