@@ -1,6 +1,6 @@
 # SyntaxRacer 🏁
 
-![CI](https://github.com/Raynzler/CodeSpeed/workflows/CI/badge.svg)
+![CI](https://github.com/Raynzler/SyntaxRacer/workflows/CI/badge.svg)
 
 A fast typing test for programmers. Practice typing real code in multiple languages.
 
@@ -14,8 +14,8 @@ A fast typing test for programmers. Practice typing real code in multiple langua
 ## Installation
 
 ```bash
-git clone https://github.com/Raynzler/CodeSpeed.git
-cd CodeSpeed
+git clone https://github.com/Raynzler/SyntaxRacer.git
+cd SyntaxRacer
 npm install
 npm run dev
 
