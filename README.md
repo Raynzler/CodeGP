@@ -12,31 +12,34 @@ A fast typing test for programmers. Practice typing real code in multiple langua
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/codespeed.git
-cd codespeed
+git clone https://github.com/Raynzler/CodeSpeed.git
+cd CodeSpeed
 npm install
 npm run dev
 
+```
 Open http://localhost:3000
+## How to Use     
+-Pick a language
+-Choose timer or code mode
+-Start typing when ready
+-View your stats
 
-How to Use
-Pick a language
-Choose timer or code mode
-Start typing when ready
-View your stats
-Shortcuts:
+## Shortcuts:
 
 Shift + Enter - New test
 Esc - Reset test
-Tech Stack
+
+## Tech Stack
 Next.js 14
 TypeScript
 Tailwind CSS
 Framer Motion
-License
+
+## License
 MIT License
 
-Copyright (c) 2024 [Your Name]
+Copyright (c) 2024 Hamza
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
