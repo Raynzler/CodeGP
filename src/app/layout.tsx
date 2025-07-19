@@ -13,8 +13,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'CodeSpeed - Test Your Coding Speed',
-  description: 'A typing speed test for programmers. Test your coding speed and accuracy with real code snippets.',
+  title: 'SyntaxRacer - Test Your Coding Speed',
+  description: 'ace through code snippets and test your programming speed. Practice typing real code in multiple languages.',
+  keywords: 'typing test, code typing, programming, speed test, syntax racing',
 };
 
 export default function RootLayout({

@@ -1,4 +1,4 @@
-# CodeSpeed ⚡
+# SyntaxRacer 🏁
 
 ![CI](https://github.com/Raynzler/CodeSpeed/workflows/CI/badge.svg)
 

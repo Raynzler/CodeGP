@@ -195,10 +195,10 @@ export default function Home() {
           <div>
             <h1 className="text-5xl font-bold mb-2">
               <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                CodeSpeed
+                SyntaxRacer
               </span>
             </h1>
-            <p className="text-gray-400">Test your coding speed and accuracy</p>
+            <p className="text-gray-400">Race through code</p>
           </div>
           
           <LanguageDropdown
