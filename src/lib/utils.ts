@@ -3,7 +3,7 @@
  * Combines all calculation and formatting utilities
  */
 
-import { GAME_CONFIG } from './constants';
+import { GAME_CONFIG } from '@/lib/constants';  // Use @/ alias instead of ./
 import { CharacterStatus } from '@/types/game.types';
 
 // ===== CALCULATIONS =====

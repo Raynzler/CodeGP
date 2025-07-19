@@ -1,6 +1,6 @@
 /**
  * Custom hook for typing game logic
- * Centralizes all game state and logic in one reusable hook
+ * Handles multi-line code input with proper cursor movement
  */
 
 import { useState, useCallback, useEffect } from 'react';
@@ -55,44 +55,90 @@ export function useTypingGame(snippet: Snippet) {
   // Character statuses for display
   const characterStatuses = getCharacterStatuses(snippet.code, userInput);
   
-  // Handle typing
-  const handleKeyPress = useCallback((e: KeyboardEvent) => {
-    // Ignore special keys
-    if (e.ctrlKey || e.metaKey || e.altKey) return;
-    
-    // Start game on first keypress
-    if (!gameState.isActive && e.key.length === 1) {
+  // End game function (exposed for timer)
+  const endGame = useCallback(() => {
+    if (gameState.isActive) {
       setGameState(prev => ({
         ...prev,
-        isActive: true,
-        startTime: Date.now(),
+        isActive: false,
+        isComplete: true,
+        endTime: Date.now(),
       }));
     }
-    
-    // Handle backspace
-    if (e.key === 'Backspace') {
-      setUserInput(prev => prev.slice(0, -1));
-      setCursorPosition(prev => Math.max(0, prev - 1));
+  }, [gameState.isActive]);
+  
+  // Handle typing
+  const handleKeyPress = useCallback((e: KeyboardEvent) => {
+    // Handle Tab + Enter for restart
+    if (e.key === 'Tab') {
+      e.preventDefault();
       return;
     }
     
-    // Handle character input
-    if (e.key.length === 1 && gameState.isActive && !gameState.isComplete) {
-      const newInput = userInput + e.key;
-      setUserInput(newInput);
-      setCursorPosition(newInput.length);
-      
-      // Check if test is complete
-      if (isTestComplete(snippet.code, newInput)) {
+    // Prevent default for space, enter, and backspace to avoid scrolling
+    if (e.key === ' ' || e.key === 'Enter' || e.key === 'Backspace') {
+      e.preventDefault();
+    }
+    
+    // Ignore special keys except the ones we handle
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    
+    // Don't process if test is complete
+    if (gameState.isComplete) return;
+    
+    // Handle backspace
+    if (e.key === 'Backspace') {
+      if (userInput.length > 0) {
+        setUserInput(prev => prev.slice(0, -1));
+        setCursorPosition(Math.max(0, userInput.length - 1));
+      }
+      return;
+    }
+    
+    // Handle character input (including space and enter)
+    if (e.key.length === 1 || e.key === 'Enter') {
+      // Start game on first keypress if not active
+      if (!gameState.isActive) {
         setGameState(prev => ({
           ...prev,
-          isActive: false,
-          isComplete: true,
-          endTime: Date.now(),
+          isActive: true,
+          startTime: Date.now(),
         }));
       }
+      
+      // Check what character we should be typing
+      const expectedChar = snippet.code[userInput.length];
+      
+      // Handle Enter key
+      if (e.key === 'Enter') {
+        // Only add newline if the expected character is a newline
+        if (expectedChar === '\n') {
+          const newInput = userInput + '\n';
+          setUserInput(newInput);
+          setCursorPosition(newInput.length);
+          
+          // Check if test is complete
+          if (isTestComplete(snippet.code, newInput)) {
+            endGame();
+          }
+        }
+        // If Enter is pressed but we're not expecting a newline, do nothing
+        return;
+      }
+      
+      // Handle regular characters (including space)
+      if (userInput.length < snippet.code.length) {
+        const newInput = userInput + e.key;
+        setUserInput(newInput);
+        setCursorPosition(newInput.length);
+        
+        // Check if test is complete
+        if (isTestComplete(snippet.code, newInput)) {
+          endGame();
+        }
+      }
     }
-  }, [userInput, gameState, snippet.code]);
+  }, [userInput, gameState, snippet.code, endGame]);
   
   // Add keyboard listener
   useEffect(() => {
@@ -120,5 +166,6 @@ export function useTypingGame(snippet: Snippet) {
     characterStatuses,
     cursorPosition,
     resetGame,
+    endGame, // Export endGame function
   };
 }

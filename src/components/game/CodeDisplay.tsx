@@ -20,8 +20,8 @@ export default function CodeDisplay({
   isActive 
 }: CodeDisplayProps) {
   return (
-    <div className="relative bg-gray-900 p-6 rounded-lg font-mono text-lg leading-relaxed overflow-auto">
-      <pre className="whitespace-pre-wrap">
+    <div className="relative bg-gray-900 p-6 rounded-lg font-mono text-lg leading-relaxed overflow-auto max-h-96">
+      <pre className="whitespace-pre">
         {characterStatuses.map((charStatus, index) => (
           <span key={index} className="relative">
             <span
@@ -34,8 +34,21 @@ export default function CodeDisplay({
               {charStatus.char}
             </span>
             
-            {/* Animated cursor */}
-            {index === cursorPosition && isActive && (
+            {/* Cursor */}
+            {index === cursorPosition - 1 && isActive && (
+              <motion.span
+                className="absolute -right-[2px] top-0 bottom-0 w-[3px] bg-yellow-400"
+                animate={{ opacity: [1, 0] }}
+                transition={{
+                  duration: GAME_CONFIG.CURSOR_BLINK_SPEED / 1000,
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                }}
+              />
+            )}
+            
+            {/* Cursor at position 0 */}
+            {index === 0 && cursorPosition === 0 && isActive && (
               <motion.span
                 className="absolute -left-[2px] top-0 bottom-0 w-[3px] bg-yellow-400"
                 animate={{ opacity: [1, 0] }}

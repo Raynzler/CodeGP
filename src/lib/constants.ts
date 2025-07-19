@@ -19,12 +19,4 @@ export const GAME_CONFIG = {
   TRANSITION_DURATION: 150,
 };
 
-export const LANGUAGES = [
-  'javascript',
-  'typescript',
-  'python',
-  'java',
-  'cpp',
-  'go',
-  'rust',
-] as const;
+// Remove the LANGUAGES export from here since it's in the components
