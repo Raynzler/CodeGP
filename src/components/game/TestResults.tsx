@@ -132,12 +132,15 @@ export default function TestResults({ stats, onNewTest, onClose }: TestResultsPr
             onClick={onNewTest}
             className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
           >
-            Try Again
+            New Test
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={onClose}
+            onClick={() => {
+              onClose();
+              onNewTest(); // Also reset the test when going back
+            }}
             className="px-6 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors font-medium"
           >
             Back to Test
