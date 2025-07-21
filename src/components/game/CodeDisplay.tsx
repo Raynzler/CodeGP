@@ -1,5 +1,4 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import { CharacterStatus } from '@/types/game.types';
 import { GAME_CONFIG } from '@/lib/constants';
@@ -34,10 +33,24 @@ export default function CodeDisplay({
               {charStatus.char}
             </span>
             
-            {/* Cursor */}
-            {index === cursorPosition - 1 && isActive && (
+            {/* Cursor - don't show on newline characters */}
+            {index === cursorPosition - 1 && isActive && charStatus.char !== '\n' && (
               <motion.span
                 className="absolute -right-[2px] top-0 bottom-0 w-[3px] bg-yellow-400"
+                animate={{ opacity: [1, 0] }}
+                transition={{
+                  duration: GAME_CONFIG.CURSOR_BLINK_SPEED / 1000,
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                }}
+              />
+            )}
+            
+            {/* Cursor after newline - show at start of next line */}
+            {index === cursorPosition && isActive && 
+             index > 0 && characterStatuses[index - 1].char === '\n' && (
+              <motion.span
+                className="absolute -left-[2px] top-0 bottom-0 w-[3px] bg-yellow-400"
                 animate={{ opacity: [1, 0] }}
                 transition={{
                   duration: GAME_CONFIG.CURSOR_BLINK_SPEED / 1000,
@@ -61,6 +74,19 @@ export default function CodeDisplay({
             )}
           </span>
         ))}
+        
+        {/* Cursor at end of text */}
+        {cursorPosition === characterStatuses.length && isActive && (
+          <motion.span
+            className="inline-block w-[3px] h-[1.2em] bg-yellow-400 align-text-bottom"
+            animate={{ opacity: [1, 0] }}
+            transition={{
+              duration: GAME_CONFIG.CURSOR_BLINK_SPEED / 1000,
+              repeat: Infinity,
+              repeatType: 'reverse',
+            }}
+          />
+        )}
       </pre>
     </div>
   );
