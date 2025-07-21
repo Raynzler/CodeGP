@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Language } from '@/types/game.types';
 import { getRandomSnippet } from '@/data/snippets';
@@ -37,6 +36,11 @@ export default function Home() {
     cursorPosition,
     resetGame,
     endGame,
+    isMobile,
+    mobileInputRef,
+    handleMobileInput,
+    focusMobileInput,
+    userInput,
   } = useTypingGame(snippet || { id: '', code: '', language: 'javascript', difficulty: 'easy' });
   
   // Timer countdown effect
@@ -238,6 +242,40 @@ export default function Home() {
             isActive={gameState.isActive}
           />
         </div>
+        
+        {/* Mobile Input Support */}
+        {isMobile && (
+          <>
+            <input
+              ref={mobileInputRef}
+              type="text"
+              className="sr-only absolute -left-9999px"
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
+              value={userInput}
+              onChange={(e) => handleMobileInput(e.target.value)}
+              onBlur={() => {
+                // Keep focus during test
+                if (gameState.isActive && !gameState.isComplete) {
+                  setTimeout(focusMobileInput, 100);
+                }
+              }}
+            />
+            
+            {!gameState.isActive && (
+              <div className="text-center mb-4">
+                <button
+                  onClick={focusMobileInput}
+                  className="px-6 py-3 bg-green-600 text-white rounded-lg font-medium"
+                >
+                  📱 Tap to Start Typing
+                </button>
+              </div>
+            )}
+          </>
+        )}
         
         {/* Stats */}
         <div className="mb-6">

@@ -1,9 +1,9 @@
 /**
  * Custom hook for typing game logic
- * Handles multi-line code input with proper cursor movement
+ * Now with mobile support!
  */
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { GameState, GameStats, Snippet } from '@/types/game.types';
 import { 
   calculateWPM, 
@@ -24,13 +24,23 @@ export function useTypingGame(snippet: Snippet) {
     endTime: null,
   });
   
+  // Mobile input ref
+  const mobileInputRef = useRef<HTMLInputElement>(null);
+  
+  // Detect if mobile
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+  }, []);
+  
   // Cursor position for display
   const [cursorPosition, setCursorPosition] = useState(0);
   
   // Calculate elapsed time
   const [elapsedTime, setElapsedTime] = useState(0);
   
-  // Timer effect
+  // Timer effect (same as before)
   useEffect(() => {
     let interval: NodeJS.Timeout;
     
@@ -55,7 +65,7 @@ export function useTypingGame(snippet: Snippet) {
   // Character statuses for display
   const characterStatuses = getCharacterStatuses(snippet.code, userInput);
   
-  // End game function (exposed for timer)
+  // End game function
   const endGame = useCallback(() => {
     if (gameState.isActive) {
       setGameState(prev => ({
@@ -64,29 +74,55 @@ export function useTypingGame(snippet: Snippet) {
         isComplete: true,
         endTime: Date.now(),
       }));
+      
+      // Blur mobile input to hide keyboard
+      if (isMobile && mobileInputRef.current) {
+        mobileInputRef.current.blur();
+      }
     }
-  }, [gameState.isActive]);
+  }, [gameState.isActive, isMobile]);
   
-  // Handle typing
-  const handleKeyPress = useCallback((e: KeyboardEvent) => {
-    // Handle Tab + Enter for restart
-    if (e.key === 'Tab') {
-      e.preventDefault();
-      return;
+  // Handle mobile input changes
+  const handleMobileInput = useCallback((value: string) => {
+    // Start game if not active
+    if (!gameState.isActive && value.length > 0) {
+      setGameState(prev => ({
+        ...prev,
+        isActive: true,
+        startTime: Date.now(),
+      }));
     }
     
-    // Prevent default for space, enter, and backspace to avoid scrolling
+    // Only allow typing if game is active and not complete
+    if (gameState.isComplete) return;
+    
+    // Handle the input
+    if (value.length <= snippet.code.length) {
+      setUserInput(value);
+      setCursorPosition(value.length);
+      
+      // Check if test is complete
+      if (isTestComplete(snippet.code, value)) {
+        endGame();
+      }
+    }
+  }, [gameState, snippet.code, endGame]);
+  
+  // Handle typing (desktop)
+  const handleKeyPress = useCallback((e: KeyboardEvent) => {
+    // Skip if on mobile
+    if (isMobile) return;
+    
+    // Rest of your existing handleKeyPress logic...
+    // (keeping the same as before)
+    
     if (e.key === ' ' || e.key === 'Enter' || e.key === 'Backspace') {
       e.preventDefault();
     }
     
-    // Ignore special keys except the ones we handle
     if (e.ctrlKey || e.metaKey || e.altKey) return;
-    
-    // Don't process if test is complete
     if (gameState.isComplete) return;
     
-    // Handle backspace
     if (e.key === 'Backspace') {
       if (userInput.length > 0) {
         setUserInput(prev => prev.slice(0, -1));
@@ -95,9 +131,7 @@ export function useTypingGame(snippet: Snippet) {
       return;
     }
     
-    // Handle character input (including space and enter)
     if (e.key.length === 1 || e.key === 'Enter') {
-      // Start game on first keypress if not active
       if (!gameState.isActive) {
         setGameState(prev => ({
           ...prev,
@@ -106,45 +140,47 @@ export function useTypingGame(snippet: Snippet) {
         }));
       }
       
-      // Check what character we should be typing
       const expectedChar = snippet.code[userInput.length];
       
-      // Handle Enter key
       if (e.key === 'Enter') {
-        // Only add newline if the expected character is a newline
         if (expectedChar === '\n') {
           const newInput = userInput + '\n';
           setUserInput(newInput);
           setCursorPosition(newInput.length);
           
-          // Check if test is complete
           if (isTestComplete(snippet.code, newInput)) {
             endGame();
           }
         }
-        // If Enter is pressed but we're not expecting a newline, do nothing
         return;
       }
       
-      // Handle regular characters (including space)
       if (userInput.length < snippet.code.length) {
         const newInput = userInput + e.key;
         setUserInput(newInput);
         setCursorPosition(newInput.length);
         
-        // Check if test is complete
         if (isTestComplete(snippet.code, newInput)) {
           endGame();
         }
       }
     }
-  }, [userInput, gameState, snippet.code, endGame]);
+  }, [userInput, gameState, snippet.code, endGame, isMobile]);
   
-  // Add keyboard listener
+  // Add keyboard listener (desktop only)
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [handleKeyPress]);
+    if (!isMobile) {
+      window.addEventListener('keydown', handleKeyPress);
+      return () => window.removeEventListener('keydown', handleKeyPress);
+    }
+  }, [handleKeyPress, isMobile]);
+  
+  // Focus mobile input
+  const focusMobileInput = useCallback(() => {
+    if (mobileInputRef.current) {
+      mobileInputRef.current.focus();
+    }
+  }, []);
   
   // Reset game
   const resetGame = useCallback(() => {
@@ -157,6 +193,11 @@ export function useTypingGame(snippet: Snippet) {
       startTime: null,
       endTime: null,
     });
+    
+    // Clear mobile input
+    if (mobileInputRef.current) {
+      mobileInputRef.current.value = '';
+    }
   }, []);
   
   return {
@@ -166,6 +207,10 @@ export function useTypingGame(snippet: Snippet) {
     characterStatuses,
     cursorPosition,
     resetGame,
-    endGame, // Export endGame function
+    endGame,
+    isMobile,
+    mobileInputRef,
+    handleMobileInput,
+    focusMobileInput,
   };
 }
