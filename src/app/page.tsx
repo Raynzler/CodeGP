@@ -198,11 +198,11 @@ export default function Home() {
         <header className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-5xl font-bold mb-2">
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent">
                 SyntaxRacer
               </span>
             </h1>
-            <p className="text-gray-400">Race through code</p>
+            <p className="text-gray-400">Race through code at full throttle 🏎️</p>
           </div>
           
           <LanguageDropdown
