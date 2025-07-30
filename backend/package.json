@@ -1,6 +1,7 @@
 {
-  "name": "syntaxracer-backend",
+  "name": "codegp-backend",
   "version": "1.0.0",
+  "description": "CodeGP API server",
   "main": "index.js",
   
   "scripts": {

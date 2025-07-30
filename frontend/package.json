@@ -1,6 +1,7 @@
 {
-  "name": "code-typing-test",
-  "version": "0.1.0",
+  "name": "codegp-frontend",
+  "version": "1.0.0",
+  "description": "F1-themed code typing game",
   "private": true,
   "scripts": {
     "dev": "next dev",

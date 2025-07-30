@@ -13,8 +13,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'SyntaxRacer - Test Your Coding Speed',
-  description: 'ace through code snippets and test your programming speed. Practice typing real code in multiple languages.',
+  title: "CodeGP - F1 Code Racing",
+  description: "Race through code Grand Prix style! How fast can you type?",
   keywords: 'typing test, code typing, programming, speed test, syntax racing',
 };
 
