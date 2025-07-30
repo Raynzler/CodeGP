@@ -1,0 +1,1514 @@
+
+{
+  id: 'js-ferrari-masterplan',
+  code: `// The Great Ferrari Master🅱️lan™
+function executeMasterPlan(currentPosition, rivalPosition, weather) {
+  // Question: Are we in P1?
+  if (currentPosition === 1 && weather === 'dry') {
+    console.log("Charles, box box for hard tyres");
+    return switchToHards(); // Why? We are checking...
+  }
+  
+  // The classic Ferrari moment
+  if (rivalPosition < currentPosition) {
+    setTimeout(() => {
+      console.log("We are looking, slow button on");
+      console.log("Head down, we talk after");
+    }, 5000);
+  }
+  
+  // Trust El Plan (wait, wrong team)
+  return "Next year™ will be our year";
+}
+
+// Actual radio transcript
+const binotto = {
+  radio: "Ok Charles, we are checking",
+  strategy: Math.random() > 0.5 ? "Box" : "Stay out",
+  result: "P6... but good for the team"
+};`,
+  language: 'javascript',
+  difficulty: 'hard',
+},
+{
+  id: 'js-verstappen-2023',
+  code: `// Max Verstappen Dominance Simulator 2023
+class RedBullRB19 {
+  constructor() {
+    this.wins = 22; // out of 23 races
+    this.poles = 12;
+    this.dnfs = 1; // Australia :(
+  }
+  
+  qualify() {
+    // Pole by 0.5 seconds minimum
+    return "P1 - Half a second clear";
+  }
+  
+  race(trackName) {
+    if (trackName === "Singapore") {
+      return "P5"; // The only non-win
+    }
+    console.log("Simply simply lovely!");
+    return "P1 - 30 seconds ahead";
+  }
+}
+
+const max = new RedBullRB19();
+console.log("Dominant!");`,
+  language: 'javascript',
+  difficulty: 'medium',
+},
+{
+  id: 'js-hamilton-tyres',
+  code: `// Lewis Hamilton Tyre Whisperer
+function manageTyres(lapNumber, tyreTemp) {
+  let radio = "";
+  
+  if (lapNumber > 10) {
+    radio = "Bono, my tyres are dead!";
+    console.log(radio);
+    
+    // Plot twist
+    setTimeout(() => {
+      setFastestLap();
+      console.log("Get in there Lewis!");
+    }, 1000);
+  }
+  
+  return {
+    tyreStatus: "actually fine",
+    lapTime: "purple sector",
+    psychological: "warfare"
+  };
+}`,
+  language: 'javascript',
+  difficulty: 'easy',
+},
+{
+  id: 'js-alonso-karma',
+  code: `// Fernando Alonso's Karma Calculator
+const alonso = {
+  age: 42,
+  speed: "faster than ever",
+  rookie: "destroyed",
+  
+  radioMessage: function(situation) {
+    switch(situation) {
+      case "penalty":
+        return "All the time you have to leave a space!";
+      case "engine":
+        return "GP2 engine! GP2!";
+      case "defend":
+        return "Palmer has retired!";
+      default:
+        return "Maximum penalties!";
+    }
+  }
+};
+
+// The legend continues
+console.log("Age is just a number");`,
+  language: 'javascript',
+  difficulty: 'easy',
+},
+{
+  id: 'js-ricciardo-honey',
+  code: `// Daniel Ricciardo Simulator
+class HoneyBadger {
+  constructor() {
+    this.smile = "infectious";
+    this.overtakes = [];
+    this.shoeyCount = 0;
+  }
+  
+  performOvertake(corner, rival) {
+    // The late brake special
+    console.log(\`Sending it at \${corner}!\`);
+    this.overtakes.push({
+      victim: rival,
+      corner: corner,
+      style: "divebomb"
+    });
+    
+    return "Licked the stamp and sent it!";
+  }
+  
+  celebratePodium() {
+    this.shoeyCount++;
+    return "Doing a shoey! 🥾🍾";
+  }
+}`,
+  language: 'javascript',
+  difficulty: 'medium',
+},
+
+// TYPESCRIPT F1 Snippets
+{
+  id: 'ts-fia-regulations',
+  code: `// FIA Technical Regulations Simulator
+interface TechnicalRegulation {
+  article: number;
+  description: string;
+  interpretation: "strict" | "flexible" | "depends who's asking";
+}
+
+class FIASteward {
+  private decisions: Map<string, string> = new Map();
+  
+  investigateIncident(
+    driver1: string, 
+    driver2: string, 
+    incident: string
+  ): string {
+    // Activate inconsistency mode
+    const coinFlip = Math.random() > 0.5;
+    
+    if (driver1 === "Verstappen" && driver2 === "Hamilton") {
+      return "No investigation necessary";
+    }
+    
+    if (incident.includes("track limits")) {
+      return coinFlip 
+        ? "5 second penalty" 
+        : "Warning - track limits";
+    }
+    
+    // Default response
+    return "We are looking into it";
+  }
+}
+
+const steward = new FIASteward();
+console.log("Let them race! (but not too much)");`,
+  language: 'typescript',
+  difficulty: 'hard',
+},
+{
+  id: 'ts-pit-stop',
+  code: `// Red Bull Pit Stop Perfection
+type WheelGun = {
+  speed: number;
+  reliability: number;
+};
+
+interface PitCrewMember {
+  role: "front-jack" | "rear-jack" | "wheel-gun" | "wheel-off" | "wheel-on";
+  reactionTime: number;
+}
+
+class RedBullPitCrew {
+  private crew: PitCrewMember[] = [];
+  private recordTime: number = 1.82;
+  
+  performStop(): { time: number; success: boolean } {
+    const baseTime = 1.9;
+    const variance = Math.random() * 0.3;
+    
+    // Sometimes magic happens
+    if (Math.random() > 0.95) {
+      console.log("SUB 2 SECOND STOP!");
+      return { time: 1.82, success: true };
+    }
+    
+    return { 
+      time: baseTime + variance, 
+      success: true 
+    };
+  }
+}`,
+  language: 'typescript',
+  difficulty: 'medium',
+},
+{
+  id: 'ts-team-radio',
+  code: `// F1 Team Radio System
+enum RadioPriority {
+  Critical = "CRITICAL",
+  Strategic = "STRATEGIC", 
+  Motivational = "MOTIVATIONAL",
+  Complaint = "COMPLAINT"
+}
+
+interface RadioMessage {
+  from: "Driver" | "Engineer";
+  priority: RadioPriority;
+  message: string;
+  censored?: boolean;
+}
+
+function processRadio(msg: RadioMessage): string {
+  if (msg.message.includes("****")) {
+    msg.censored = true;
+  }
+  
+  if (msg.from === "Driver" && msg.priority === RadioPriority.Complaint) {
+    return "Copy, we are looking";
+  }
+  
+  return "Roger that";
+}`,
+  language: 'typescript',
+  difficulty: 'easy',
+},
+{
+  id: 'ts-weather-strategy',
+  code: `// Weather Strategy Calculator
+type TyreCompound = "Soft" | "Medium" | "Hard" | "Inter" | "Wet";
+
+interface WeatherData {
+  currentCondition: "Dry" | "Damp" | "Wet";
+  rainIn: number; // minutes
+  intensity: number; // 0-10
+}
+
+class StrategyDepartment {
+  calculateOptimalStrategy(
+    weather: WeatherData,
+    currentLap: number,
+    totalLaps: number
+  ): TyreCompound {
+    // Classic gambling moment
+    if (weather.rainIn < 5 && weather.rainIn > 0) {
+      console.log("Box box for inters!");
+      console.log("Wait... stay out!");
+      console.log("Actually box box!");
+    }
+    
+    return "Soft"; // YOLO
+  }
+}`,
+  language: 'typescript',
+  difficulty: 'medium',
+},
+{
+  id: 'ts-drs-train',
+  code: `// DRS Train Manager
+interface DRSZone {
+  detectionPoint: number;
+  activationPoint: number;
+  length: number;
+}
+
+class DRSTrain {
+  private cars: string[] = [];
+  private gapTolerance = 1.0; // seconds
+  
+  addCar(driver: string): void {
+    this.cars.push(driver);
+    console.log(\`\${driver} joins the DRS train\`);
+  }
+  
+  attemptOvertake(attacker: string, defender: string): boolean {
+    // Trulli train special
+    if (defender === "Trulli" || defender === "Alonso") {
+      console.log("Good luck with that!");
+      return false;
+    }
+    
+    return Math.random() > 0.7;
+  }
+}
+
+const train = new DRSTrain();
+console.log("Choo choo! 🚂");`,
+  language: 'typescript',
+  difficulty: 'hard',
+},
+
+// PYTHON F1 Snippets
+{
+  id: 'py-guenther-steiner',
+  code: `# Guenther Steiner Team Principal Simulator
+class HaasF1Team:
+    def __init__(self):
+        self.budget = "not enough"
+        self.door_status = "foksmashed"
+        self.mood = "frustrated"
+    
+    def analyze_performance(self, position):
+        """Guenther's honest feedback"""
+        if position > 15:
+            return "We look like a bunch of wankers!"
+        elif position > 10:
+            return "This is a disaster!"
+        else:
+            return "Not bad for a bunch of wankers"
+    
+    def motivate_driver(self, driver_name):
+        quotes = [
+            f"{driver_name}, you're not fokking concentrating!",
+            "I'm not playing games here!",
+            "This is bull****!",
+            "Get in there and fokking drive"
+        ]
+        
+        import random
+        return random.choice(quotes)
+
+team = HaasF1Team()
+print("Welcome to the Haas experience")`,
+  language: 'python',
+  difficulty: 'medium',
+},
+{
+  id: 'py-mclaren-strategy',
+  code: `# McLaren Strategy Department
+import time
+
+class McLarenStrategist:
+    """Questionable decisions since 2007"""
+    
+    def __init__(self):
+        self.good_decisions = 0
+        self.questionable_decisions = 999
+        
+    def pit_stop_decision(self, driver, current_pos):
+        # The McLaren special
+        if driver == "Norris" and current_pos <= 3:
+            print("Stay out, stay out!")
+            time.sleep(5)
+            print("Actually box box box!")
+            return "Lost 5 positions"
+        
+        # Classic overthinking
+        print("We are thinking Plan C... no D... actually A")
+        return "Confused everyone including ourselves"
+    
+    def weather_gamble(self):
+        # Russia 2021 flashbacks
+        print("It's going to be dry... right?")
+        return "Pain. Just pain."
+
+strategist = McLarenStrategist()
+print("Spain but the S is silent")`,
+  language: 'python',
+  difficulty: 'easy',
+},
+{
+  id: 'py-kimi-simulator',
+  code: `# Kimi Räikkönen Communication System
+class Iceman:
+    def __init__(self):
+        self.words_per_race = 10
+        self.drinks_connected = False
+        self.bothered = False
+    
+    def respond_to_engineer(self, message):
+        """Minimal responses only"""
+        
+        if "strategy" in message.lower():
+            return "Bwoah"
+            
+        if "position" in message.lower():
+            return "I know what I'm doing"
+            
+        if "drink" in message.lower():
+            self.drinks_connected = False
+            return "No, no, is the drink not working"
+            
+        # Default Kimi response
+        return "Leave me alone, I know what to do"
+    
+    def give_feedback(self):
+        feedback_options = [
+            "The car is ****",
+            "I spun",
+            "It's the same for everyone",
+            "Bwoah, is normal"
+        ]
+        return feedback_options[0]  # Always honest
+
+kimi = Iceman()
+print(kimi.respond_to_engineer("What's your strategy?"))`,
+  language: 'python',
+  difficulty: 'easy',
+},
+{
+  id: 'py-mercedes-dominance',
+  code: `# Mercedes Dominance Era Simulator (2014-2020)
+class W11:
+    """The most dominant F1 car ever"""
+    
+    def __init__(self):
+        self.poles = 15
+        self.wins = 13
+        self.dnfs = 0
+        self.party_mode = True
+        
+    def qualify(self, track, conditions):
+        # Standard Mercedes qualifying
+        if self.party_mode:
+            gap_to_p2 = 0.5 + (0.3 * len(track) / 5000)
+            print(f"Hamilton on pole by {gap_to_p2:.3f} seconds")
+            
+        return {
+            "P1": "Hamilton",
+            "P2": "Bottas", 
+            "P3": "Some Red Bull",
+            "Gap": "Embarrassing for others"
+        }
+    
+    def race_simulation(self):
+        # The Mercedes special
+        print("Lights out and away we go!")
+        print("Hamilton leads into turn 1")
+        print("And wins by 30 seconds")
+        
+        return "Get in there Lewis! Amazing job!"
+
+mercedes = W11()
+print("Is Mercedes dominance boring? Bono: 'No'")`,
+  language: 'python',
+  difficulty: 'medium',
+},
+{
+  id: 'py-silly-season',
+  code: `# F1 Silly Season Rumor Generator
+import random
+
+class SillySeasonGenerator:
+    def __init__(self):
+        self.drivers = ["Alonso", "Ricciardo", "Vettel", "Hulkenberg"]
+        self.teams = ["Ferrari", "Mercedes", "Red Bull", "Alpine", "Haas"]
+        self.sources = ["my cousin", "Reddit", "a paddock cleaner", "trust me bro"]
+        
+    def generate_rumor(self):
+        driver = random.choice(self.drivers)
+        team = random.choice(self.teams)
+        source = random.choice(self.sources)
+        
+        rumors = [
+            f"BREAKING: {driver} to {team} confirmed by {source}!",
+            f"{driver} spotted at {team} factory (source: {source})",
+            f"Exclusive: {driver} has signed with {team} - {source}",
+            f"{team} in SHOCK move for {driver} according to {source}"
+        ]
+        
+        return random.choice(rumors)
+    
+    def reality_check(self):
+        return "Plot twist: Everyone stays where they are"
+
+silly_season = SillySeasonGenerator()
+for _ in range(3):
+    print(silly_season.generate_rumor())`,
+  language: 'python',
+  difficulty: 'hard',
+},
+
+// JAVA F1 Snippets
+{
+  id: 'java-ferrari-engine',
+  code: `// Ferrari Power Unit Simulator
+public class FerrariPowerUnit {
+    private double power;
+    private boolean legal;
+    private String year;
+    
+    public FerrariPowerUnit(String year) {
+        this.year = year;
+        
+        // The mysterious 2019 engine
+        if (year.equals("2019")) {
+            this.power = Double.MAX_VALUE;
+            this.legal = false; // FIA: "We're not saying it's illegal but..."
+        } else {
+            this.power = 950.0;
+            this.legal = true;
+        }
+    }
+    
+    public void activatePartyMode() {
+        System.out.println("Deploying full power!");
+        if (!legal) {
+            System.out.println("FIA wants to know your location");
+        }
+    }
+    
+    public String getRaceEngineerMessage() {
+        if (power < 900) {
+            return "We are checking... slow button on";
+        }
+        return "Full beans available!";
+    }
+}`,
+  language: 'java',
+  difficulty: 'medium',
+},
+{
+  id: 'java-safety-car',
+  code: `// Bernd Mayländer's Safety Car
+public class SafetyCar {
+    private String driver = "Bernd Mayländer";
+    private int lapsLed = 0;
+    private boolean deployed = false;
+    
+    public void deploy(String reason) {
+        this.deployed = true;
+        System.out.println("Safety Car deployed: " + reason);
+        
+        // Typical scenarios
+        switch(reason) {
+            case "Latifi":
+                System.out.println("Abu Dhabi 2021 flashbacks intensify");
+                break;
+            case "Monaco barrier":
+                System.out.println("Someone kissed the wall at Swimming Pool");
+                break;
+            default:
+                System.out.println("VSC would be enough but here we are");
+        }
+    }
+    
+    public void leadThePack() {
+        lapsLed++;
+        if (lapsLed > 5) {
+            System.out.println("Drivers complaining about tyre temps");
+        }
+    }
+}`,
+  language: 'java',
+  difficulty: 'easy',
+},
+{
+  id: 'java-team-orders',
+  code: `// Team Orders Management System
+public abstract class TeamOrders {
+    protected String team;
+    protected boolean executed;
+    
+    public abstract String giveOrder(String driver1, String driver2);
+}
+
+class FerrariOrders extends TeamOrders {
+    public FerrariOrders() {
+        this.team = "Ferrari";
+    }
+    
+    @Override
+    public String giveOrder(String driver1, String driver2) {
+        // Classic Ferrari
+        return driver1 + " is faster than you. Can you confirm?";
+    }
+}
+
+class RedBullOrders extends TeamOrders {
+    @Override  
+    public String giveOrder(String driver1, String driver2) {
+        // Multi 21 Seb, Multi 21!
+        return "Use Multi-Map 21";
+    }
+}
+
+// Usage
+TeamOrders orders = new FerrariOrders();
+System.out.println(orders.giveOrder("Charles", "Carlos"));`,
+  language: 'java',
+  difficulty: 'medium',
+},
+{
+  id: 'java-toto-wolff',
+  code: `// Toto Wolff Reaction Generator
+public class TotoWolff {
+    private int frustrationLevel = 0;
+    private boolean tableSmashed = false;
+    
+    public void reactToEvent(String event) {
+        System.out.println("Toto's reaction to: " + event);
+        
+        if (event.contains("Hamilton") && event.contains("puncture")) {
+            smashTable();
+            sendEmail("michael.masi@fia.com", "Michael, I sent you an email");
+        }
+        
+        if (event.contains("No Michael")) {
+            frustrationLevel = 100;
+            System.out.println("NO MICHAEL NO! THAT WAS SO NOT RIGHT!");
+        }
+    }
+    
+    private void smashTable() {
+        this.tableSmashed = true;
+        System.out.println("*AGGRESSIVE TABLE SMASHING*");
+        System.out.println("Bose headphones: -$300");
+    }
+    
+    private void sendEmail(String to, String message) {
+        System.out.println("Sending diagrams and evidence...");
+    }
+}`,
+  language: 'java',
+  difficulty: 'easy',
+},
+{
+  id: 'java-martin-brundle',
+  code: `// Martin Brundle Grid Walk Simulator
+import java.util.Random;
+
+public class GridWalk {
+    private String[] celebrities = {
+        "Someone who clearly doesn't know F1",
+        "A confused footballer", 
+        "DJ Khaled",
+        "A bodyguard blocking Martin"
+    };
+    
+    private String[] awkwardPhrases = {
+        "Can I have a word?",
+        "I think they're not interested",
+        "Let's try someone else",
+        "Security is quite tight here"
+    };
+    
+    public void performGridWalk() {
+        Random rand = new Random();
+        
+        System.out.println("Martin: Welcome to the grid!");
+        
+        for (int i = 0; i < 3; i++) {
+            String celeb = celebrities[rand.nextInt(celebrities.length)];
+            String phrase = awkwardPhrases[rand.nextInt(awkwardPhrases.length)];
+            
+            System.out.println("Approaching: " + celeb);
+            System.out.println("Martin: " + phrase);
+            System.out.println("*Awkward silence*");
+        }
+        
+        System.out.println("Back to you, Crofty!");
+    }
+}`,
+  language: 'java',
+  difficulty: 'hard',
+},
+
+// C++ F1 Snippets
+{
+  id: 'cpp-adrian-newey',
+  code: `// Adrian Newey Aerodynamics Simulator
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+class NeweyAerodynamics {
+private:
+    double downforce;
+    double dragCoefficient;
+    bool rakeAngleOptimal;
+    
+public:
+    NeweyAerodynamics() {
+        // Newey magic numbers
+        downforce = 9999.0;
+        dragCoefficient = 0.001; // Impossibly low
+        rakeAngleOptimal = true;
+    }
+    
+    void designRevolutionaryPart() {
+        std::cout << "Creating something that will be banned next year..." << std::endl;
+        
+        // The Newey special
+        if (rand() % 10 > 5) {
+            std::cout << "FIA: Wait, that's illegal!" << std::endl;
+            std::cout << "Newey: Actually, regulation 3.7.9 says..." << std::endl;
+            std::cout << "FIA: ... carry on then" << std::endl;
+        }
+    }
+    
+    double calculateLapTimeGain() {
+        // Standard Newey improvement
+        return -2.5; // seconds per lap
+    }
+};
+
+int main() {
+    NeweyAerodynamics rb19;
+    rb19.designRevolutionaryPart();
+    return 0;
+}`,
+  language: 'cpp',
+  difficulty: 'hard',
+},
+{
+  id: 'cpp-quali-sim',
+  code: `// Q3 Qualifying Simulator
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+class QualifyingSession {
+private:
+    struct LapTime {
+        std::string driver;
+        double time;
+        bool deleted;
+    };
+    
+    std::vector<LapTime> times;
+    
+public:
+    void runQ3() {
+        std::cout << "Q3 STARTING - 12 minutes" << std::endl;
+        
+        // First runs
+        submitLap("Verstappen", 78.234);
+        submitLap("Hamilton", 78.567);
+        submitLap("Alonso", 78.890);
+        
+        std::cout << "\\nFINAL RUNS COMING!" << std::endl;
+        
+        // Track evolution magic
+        submitLap("Verstappen", 77.901);
+        submitLap("Hamilton", 78.002);
+        
+        // Someone bins it
+        std::cout << "YELLOW FLAG! Sargeant in the wall!" << std::endl;
+        deleteLapTime("Alonso");
+    }
+    
+    void submitLap(std::string driver, double time) {
+        times.push_back({driver, time, false});
+        std::cout << driver << ": " << time << std::endl;
+    }
+    
+    void deleteLapTime(std::string driver) {
+        std::cout << driver << " lap time deleted - track limits" << std::endl;
+    }
+};`,
+  language: 'cpp',
+  difficulty: 'medium',
+},
+{
+  id: 'cpp-racing-incident',
+  code: `// Racing Incident Analyzer
+#include <string>
+#include <map>
+
+class IncidentAnalyzer {
+private:
+    std::map<std::string, int> penaltyPoints;
+    
+public:
+    std::string analyzeIncident(
+        std::string driver1, 
+        std::string driver2,
+        std::string corner
+    ) {
+        // The standard excuses
+        std::cout << driver1 << ": He didn't leave me space!" << std::endl;
+        std::cout << driver2 << ": He came from nowhere!" << std::endl;
+        
+        // Steward decision making
+        if (corner == "Copse" && driver1 == "Hamilton") {
+            return "10 second penalty";
+        }
+        
+        if (driver1 == "Magnussen" || driver2 == "Magnussen") {
+            return "Racing incident - hard but fair";
+        }
+        
+        return "5 second penalty - causing a collision";
+    }
+    
+    void issueWarning(std::string driver) {
+        std::cout << "Black and white flag shown to " << driver << std::endl;
+        penaltyPoints[driver]++;
+    }
+};`,
+  language: 'cpp',
+  difficulty: 'easy',
+},
+{
+  id: 'cpp-engine-modes',
+  code: `// Power Unit Mode Management
+#include <iostream>
+
+class PowerUnit {
+private:
+    enum Mode {
+        SAVE_FUEL,
+        STANDARD,
+        OVERTAKE,
+        PARTY_MODE,
+        HONDA_VTEC_KICKED_IN
+    };
+    
+    Mode currentMode;
+    double fuelRemaining;
+    int mguKDeployment;
+    
+public:
+    PowerUnit() : currentMode(STANDARD), fuelRemaining(110.0) {}
+    
+    void setMode(Mode mode) {
+        currentMode = mode;
+        
+        switch(mode) {
+            case PARTY_MODE:
+                std::cout << "FULL BEANS! MAXIMUM ATTACK!" << std::endl;
+                fuelRemaining -= 5.0;
+                break;
+                
+            case HONDA_VTEC_KICKED_IN:
+                std::cout << "VTEC KICKED IN YO!" << std::endl;
+                std::cout << "Alonso: GP2 ENGINE! GP2!" << std::endl;
+                break;
+                
+            case SAVE_FUEL:
+                std::cout << "Lift and coast into turn 1" << std::endl;
+                break;
+        }
+    }
+    
+    void harvestEnergy() {
+        mguKDeployment++;
+        std::cout << "Harvesting in sector 1" << std::endl;
+    }
+};`,
+  language: 'cpp',
+  difficulty: 'medium',
+},
+{
+  id: 'cpp-wet-race',
+  code: `// Wet Weather Racing Logic
+#include <vector>
+#include <random>
+
+class WetRace {
+private:
+    bool redFlagIncoming;
+    int visibilityPercent;
+    std::vector<std::string> radioComplaints;
+    
+public:
+    WetRace() : redFlagIncoming(false), visibilityPercent(10) {
+        radioComplaints = {
+            "I can't see anything!",
+            "It's undriveable!", 
+            "Why are we racing?",
+            "Aquaplaning everywhere!"
+        };
+    }
+    
+    void startBehindSafetyCar() {
+        std::cout << "Rolling start behind safety car" << std::endl;
+        std::cout << "Lap 1 of ???" << std::endl;
+        
+        for (int lap = 1; lap <= 10; lap++) {
+            std::cout << "Formation lap #" << lap << std::endl;
+            broadcastComplaint();
+            
+            if (lap == 10) {
+                std::cout << "Race suspended - Red flag!" << std::endl;
+                redFlagIncoming = true;
+            }
+        }
+    }
+    
+    void broadcastComplaint() {
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(0, radioComplaints.size() - 1);
+        
+        std::cout << "Driver radio: " << radioComplaints[dis(gen)] << std::endl;
+    }
+};`,
+  language: 'cpp',
+  difficulty: 'hard',
+},
+
+// GO F1 Snippets
+{
+  id: 'go-christian-horner',
+  code: `// Christian Horner Stirring Generator
+package main
+
+import (
+    "fmt"
+    "math/rand"
+)
+
+type TeamPrincipal struct {
+    Name     string
+    Team     string
+    StirLevel int
+}
+
+func (tp *TeamPrincipal) stirThePot(target string) string {
+    stirringPhrases := []string{
+        fmt.Sprintf("%s is under tremendous pressure", target),
+        fmt.Sprintf("I think %s should focus on their own car", target),
+        fmt.Sprintf("%s seems a bit desperate", target),
+        "It's quite entertaining to watch",
+        "They're playing games",
+    }
+    
+    tp.StirLevel++
+    return stirringPhrases[rand.Intn(len(stirringPhrases))]
+}
+
+func (tp *TeamPrincipal) respondToToto(message string) {
+    fmt.Println("Toto:", message)
+    fmt.Println("Christian: *smirks*")
+    fmt.Println("Christian:", tp.stirThePot("Mercedes"))
+    
+    // Geri Halliwell appears
+    fmt.Println("*Camera cuts to Geri looking concerned*")
+}
+
+func main() {
+    horner := TeamPrincipal{
+        Name: "Christian Horner",
+        Team: "Red Bull Racing",
+        StirLevel: 0,
+    }
+    
+    horner.respondToToto("That was not right!")
+}`,
+  language: 'go',
+  difficulty: 'medium',
+},
+{
+  id: 'go-track-limits',
+  code: `// Track Limits Detection System
+package main
+
+import "fmt"
+
+type TrackLimitsDetector struct {
+    warnings map[string]int
+    deleted  map[string][]string
+}
+
+func NewDetector() *TrackLimitsDetector {
+    return &TrackLimitsDetector{
+        warnings: make(map[string]int),
+        deleted:  make(map[string][]string),
+    }
+}
+
+func (tld *TrackLimitsDetector) checkLap(driver string, turn int) {
+    // Austria Turn 9/10 special
+    if turn == 9 || turn == 10 {
+        tld.warnings[driver]++
+        
+        if tld.warnings[driver] >= 3 {
+            fmt.Printf("%s: Lap time deleted - track limits turn %d\\n", driver, turn)
+            tld.deleted[driver] = append(tld.deleted[driver], "Q3 Final Lap")
+            
+            // Driver reaction
+            fmt.Printf("%s: WHERE DID I EXCEED?!\\n", driver)
+        }
+    }
+}
+
+func main() {
+    detector := NewDetector()
+    
+    // Typical qualifying session
+    detector.checkLap("Verstappen", 9)
+    detector.checkLap("Verstappen", 10)
+    detector.checkLap("Verstappen", 9) // There goes pole
+}`,
+  language: 'go',
+  difficulty: 'easy',
+},
+{
+  id: 'go-press-conference',
+  code: `// F1 Press Conference Simulator
+package main
+
+import (
+    "fmt"
+    "strings"
+)
+
+type Driver struct {
+    Name        string
+    Mood        string
+    PRTraining  bool
+}
+
+func (d *Driver) answerQuestion(question string) string {
+    // Kimi mode
+    if d.Name == "Raikkonen" {
+        return "Bwoah, is same for everyone"
+    }
+    
+    // PR trained response
+    if d.PRTraining {
+        responses := []string{
+            "Yeah, for sure",
+            "The team did an amazing job",
+            "We'll keep pushing",
+            "We need to look at the data",
+        }
+        return responses[0]
+    }
+    
+    // Alonso mode
+    if strings.Contains(question, "retirement") {
+        return "I'm feeling better than ever!"
+    }
+    
+    return "Can you repeat the question?"
+}
+
+func pressConference(drivers []Driver) {
+    fmt.Println("Welcome to the FIA Press Conference")
+    
+    questions := []string{
+        "How was your race?",
+        "Thoughts on the incident?",
+        "What about next year?",
+    }
+    
+    for _, q := range questions {
+        fmt.Printf("\\nJournalist: %s\\n", q)
+        for _, d := range drivers {
+            fmt.Printf("%s: %s\\n", d.Name, d.answerQuestion(q))
+        }
+    }
+}`,
+  language: 'go',
+  difficulty: 'medium',
+},
+{
+  id: 'go-race-director',
+  code: `// Race Director Decision Maker
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+type RaceDirector struct {
+    Name          string
+    Consistency   float32
+    Pressure      int
+}
+
+func (rd *RaceDirector) makeDecision(incident string) {
+    fmt.Printf("Incident noted: %s\\n", incident)
+    
+    // Michael Masi special
+    if incident == "Latifi crash" && rd.Name == "Masi" {
+        fmt.Println("Safety car deployed")
+        time.Sleep(3 * time.Second)
+        fmt.Println("Lapped cars may NOT overtake")
+        time.Sleep(2 * time.Second)
+        fmt.Println("Actually, SOME lapped cars may overtake")
+        fmt.Println("Toto: Michael, this is not right!")
+        fmt.Println("Michael: Toto, it's called motor racing")
+    }
+    
+    // Standard decision
+    rd.investigate(incident)
+}
+
+func (rd *RaceDirector) investigate(incident string) {
+    decisions := []string{
+        "No investigation necessary",
+        "Noted by stewards", 
+        "Under investigation",
+        "5 second penalty",
+        "Let them race",
+    }
+    
+    fmt.Println("Decision:", decisions[rd.Pressure%5])
+}
+
+func main() {
+    masi := RaceDirector{
+        Name: "Michael Masi",
+        Consistency: 0.3,
+        Pressure: 100,
+    }
+    
+    masi.makeDecision("Latifi crash")
+}`,
+  language: 'go',
+  difficulty: 'hard',
+},
+{
+  id: 'go-danny-ric',
+  code: `// Daniel Ricciardo Happiness Tracker
+package main
+
+import "fmt"
+
+type HoneyBadger struct {
+    Mood         string
+    SmileLevel   int
+    ShoeyCount   int
+    Team         string
+}
+
+func (hb *HoneyBadger) changeTeam(newTeam string) {
+    oldTeam := hb.Team
+    hb.Team = newTeam
+    
+    switch newTeam {
+    case "McLaren":
+        hb.SmileLevel = 5
+        fmt.Println("This is the start of something special!")
+        // Narrator: It wasn't
+        
+    case "AlphaTauri":
+        hb.SmileLevel = 7
+        fmt.Println("I'm back baby!")
+        
+    case "Red Bull":
+        hb.SmileLevel = 10
+        fmt.Println("The Honey Badger is home!")
+    }
+    
+    fmt.Printf("Left %s for %s\\n", oldTeam, newTeam)
+}
+
+func (hb *HoneyBadger) performShoey() {
+    hb.ShoeyCount++
+    fmt.Printf("SHOEY #%d! 🥾🍾\\n", hb.ShoeyCount)
+    fmt.Println("Crowd goes wild!")
+    
+    hb.SmileLevel = 11 // Beyond maximum
+}
+
+func main() {
+    danny := HoneyBadger{
+        Mood: "Always positive",
+        SmileLevel: 8,
+        Team: "Free agent",
+    }
+    
+    danny.changeTeam("AlphaTauri")
+    danny.performShoey()
+}`,
+  language: 'go',
+  difficulty: 'easy',
+},
+
+// RUST F1 Snippets
+{
+  id: 'rust-team-budget',
+  code: `// F1 Budget Cap Simulator
+#[derive(Debug)]
+struct TeamBudget {
+    team_name: String,
+    budget_cap: f64,
+    actual_spend: f64,
+    creative_accounting: bool,
+}
+
+impl TeamBudget {
+    fn new(team: &str) -> Self {
+        TeamBudget {
+            team_name: team.to_string(),
+            budget_cap: 145_000_000.0,
+            actual_spend: 0.0,
+            creative_accounting: team == "Red Bull",
+        }
+    }
+    
+    fn add_expense(&mut self, item: &str, cost: f64) {
+        match item {
+            "Catering" if self.creative_accounting => {
+                println!("{}? That's... uh... not included", item);
+                // *whistles innocently*
+            },
+            "Sick leave" => {
+                println!("Also not included in budget cap!");
+            },
+            _ => {
+                self.actual_spend += cost;
+                println!("Added {} for ${}", item, cost);
+            }
+        }
+    }
+    
+    fn check_compliance(&self) -> Result<(), String> {
+        if self.actual_spend > self.budget_cap {
+            Err(format!("{} exceeded cap by ${}", 
+                self.team_name, 
+                self.actual_spend - self.budget_cap))
+        } else {
+            Ok(())
+        }
+    }
+}
+
+fn main() {
+    let mut rb_budget = TeamBudget::new("Red Bull");
+    rb_budget.add_expense("Catering", 2_000_000.0);
+    rb_budget.add_expense("Development", 143_000_000.0);
+    
+    match rb_budget.check_compliance() {
+        Ok(_) => println!("All good! *wink*"),
+        Err(e) => println!("Minor overspend: {}", e),
+    }
+}`,
+  language: 'rust',
+  difficulty: 'hard',
+},
+{
+  id: 'rust-pit-window',
+  code: `// Pit Stop Window Calculator
+use std::collections::HashMap;
+
+struct Strategy {
+    tyre_life: HashMap<String, u32>,
+    pit_window: (u32, u32),
+}
+
+impl Strategy {
+    fn calculate_pit_window(&self, compound: &str, track_temp: f32) -> (u32, u32) {
+        let base_life = self.tyre_life.get(compound).unwrap_or(&30);
+        
+        // Track temp affects degradation
+        let temp_factor = if track_temp > 50.0 { 0.8 } else { 1.0 };
+        let adjusted_life = (*base_life as f32 * temp_factor) as u32;
+        
+        // Optimal window
+        let start = adjusted_life - 5;
+        let end = adjusted_life + 10;
+        
+        (start, end)
+    }
+    
+    fn should_pit(&self, current_lap: u32, position: u32) -> bool {
+        // Ferrari logic
+        if position == 1 {
+            println!("We are checking...");
+            std::thread::sleep(std::time::Duration::from_secs(5));
+            true // Always pit from the lead
+        } else {
+            current_lap >= self.pit_window.0
+        }
+    }
+}
+
+fn main() {
+    let mut strategy = Strategy {
+        tyre_life: HashMap::new(),
+        pit_window: (20, 30),
+    };
+    
+    strategy.tyre_life.insert("Soft".to_string(), 25);
+    strategy.tyre_life.insert("Medium".to_string(), 35);
+    strategy.tyre_life.insert("Hard".to_string(), 50);
+    
+    let window = strategy.calculate_pit_window("Soft", 55.0);
+    println!("Pit window: Lap {} to {}", window.0, window.1);
+}`,
+  language: 'rust',
+  difficulty: 'medium',
+},
+{
+  id: 'rust-drs-detection',
+  code: `// DRS Detection System
+#[derive(Debug)]
+struct Car {
+    driver: String,
+    position: u32,
+    gap_to_ahead: f32,
+}
+
+struct DRSSystem {
+    enabled_lap: u32,
+    detection_zones: Vec<f32>,
+}
+
+impl DRSSystem {
+    fn check_drs_available(&self, car: &Car, current_lap: u32) -> bool {
+        if current_lap < self.enabled_lap {
+            return false;
+        }
+        
+        // Within 1 second?
+        if car.gap_to_ahead <= 1.0 && car.position > 1 {
+            println!("{}: DRS enabled!", car.driver);
+            true
+        } else {
+            false
+        }
+    }
+    
+    fn form_drs_train(cars: Vec<&Car>) -> Vec<String> {
+        let mut train = Vec::new();
+        
+        for car in cars {
+            if car.gap_to_ahead <= 1.0 {
+                train.push(car.driver.clone());
+                println!("{} joins the DRS train!", car.driver);
+            }
+        }
+        
+        if train.len() > 5 {
+            println!("Trulli train 2.0 has formed!");
+        }
+        
+        train
+    }
+}
+
+fn main() {
+    let drs = DRSSystem {
+        enabled_lap: 3,
+        detection_zones: vec![0.0, 0.5, 0.8],
+    };
+    
+    let car = Car {
+        driver: "Alonso".to_string(),
+        position: 5,
+        gap_to_ahead: 0.8,
+    };
+    
+    drs.check_drs_available(&car, 10);
+}`,
+  language: 'rust',
+  difficulty: 'easy',
+},
+{
+  id: 'rust-telemetry',
+  code: `// F1 Telemetry Analysis
+use std::sync::mpsc;
+use std::thread;
+use std::time::Duration;
+
+#[derive(Clone)]
+struct TelemetryData {
+    speed: f32,
+    throttle: u8,
+    brake: u8,
+    gear: u8,
+    engine_temp: f32,
+}
+
+struct Engineer {
+    driver: String,
+}
+
+impl Engineer {
+    fn analyze_telemetry(&self, data: &TelemetryData) -> String {
+        match data.engine_temp {
+            temp if temp > 130.0 => {
+                format!("{}, lift and coast, engine too hot!", self.driver)
+            },
+            _ if data.throttle < 50 && data.speed > 200.0 => {
+                "Why are you lifting there?".to_string()
+            },
+            _ if data.brake > 90 => {
+                "Late braking! Purple sector!".to_string()
+            },
+            _ => "Looking good, keep pushing".to_string()
+        }
+    }
+}
+
+fn simulate_lap(tx: mpsc::Sender<TelemetryData>) {
+    let mut telemetry = TelemetryData {
+        speed: 0.0,
+        throttle: 0,
+        brake: 0,
+        gear: 1,
+        engine_temp: 90.0,
+    };
+    
+    // Simulate acceleration
+    for _ in 0..10 {
+        telemetry.speed += 30.0;
+        telemetry.throttle = 100;
+        telemetry.gear = (telemetry.speed / 50.0) as u8 + 1;
+        telemetry.engine_temp += 2.0;
+        
+        tx.send(telemetry.clone()).unwrap();
+        thread::sleep(Duration::from_millis(100));
+    }
+}
+
+fn main() {
+    let (tx, rx) = mpsc::channel();
+    let engineer = Engineer { driver: "Charles".to_string() };
+    
+    thread::spawn(move || simulate_lap(tx));
+    
+    for data in rx {
+        println!("Speed: {}kph, Gear: {}", data.speed, data.gear);
+        println!("Engineer: {}", engineer.analyze_telemetry(&data));
+    }
+}`,
+  language: 'rust',
+  difficulty: 'hard',
+},
+{
+  id: 'rust-weather-gamble',
+  code: `// Weather Strategy Gambling
+enum Weather {
+    Dry,
+    Drying,
+    LightRain,
+    HeavyRain,
+    Monsoon,
+}
+
+enum TyreChoice {
+    Soft,
+    Medium, 
+    Hard,
+    Intermediate,
+    Wet,
+}
+
+struct StrategyGamble {
+    team: String,
+    current_tyres: TyreChoice,
+    weather_prediction: Weather,
+}
+
+impl StrategyGamble {
+    fn make_decision(&self, current_weather: &Weather) -> TyreChoice {
+        use Weather::*;
+        use TyreChoice::*;
+        
+        match (current_weather, &self.weather_prediction) {
+            (Dry, LightRain) => {
+                println!("{}: Stay out! (Famous last words)", self.team);
+                self.current_tyres.clone()
+            },
+            (LightRain, Dry) => {
+                println!("{}: Box for slicks! Trust us!", self.team);
+                Soft
+            },
+            (Drying, _) => {
+                // The classic gamble
+                if self.team == "McLaren" {
+                    println!("McLaren: *Overthinking intensifies*");
+                    Intermediate // Always wrong
+                } else {
+                    Soft
+                }
+            },
+            (Monsoon, _) => {
+                println!("Spa 2021 flashbacks...");
+                Wet
+            },
+            _ => self.current_tyres.clone()
+        }
+    }
+}
+
+fn main() {
+    let strategy = StrategyGamble {
+        team: "Ferrari".to_string(),
+        current_tyres: TyreChoice::Medium,
+        weather_prediction: Weather::LightRain,
+    };
+    
+    let decision = strategy.make_decision(&Weather::Drying);
+    println!("Decision made! Hope it works...");
+}`,
+  language: 'rust',
+  difficulty: 'medium',
+},
+};
