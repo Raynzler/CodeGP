@@ -1,6 +1,7 @@
-import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
+import { AuthProvider } from "@/lib/contexts/AuthContext";
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -15,7 +16,6 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "CodeGP - F1 Code Racing",
   description: "Race through code Grand Prix style! How fast can you type?",
-  keywords: 'typing test, code typing, programming, speed test, syntax racing',
 };
 
 export default function RootLayout({
@@ -25,8 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        {children}
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${inter.className}`}>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

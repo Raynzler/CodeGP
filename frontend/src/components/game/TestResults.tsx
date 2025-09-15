@@ -2,7 +2,9 @@
 import { motion } from 'framer-motion';
 import { formatTime } from '@/lib/utils';
 import { getDriverRank, driverRankings } from '@/lib/f1-rankings';
-
+import { useEffect, useState } from 'react';
+import { saveTypingSession } from '@/lib/api/sessions';
+import { useAuth } from '@/lib/contexts/AuthContext';
 
 interface TestResultsProps {
   stats: any;

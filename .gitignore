@@ -5,7 +5,7 @@ node_modules/
 
 # Testing
 coverage/
-.nyc_output/
+.nyc_output
 
 # Next.js
 .next/
@@ -14,36 +14,67 @@ build/
 dist/
 
 # Production
-*.production
-
-# Misc
-.DS_Store
-*.pem
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Debug
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-# Local env files
+# Environment files
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env*.local
 
-# Vercel
-.vercel
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
 
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# OS generated files
+# Misc
+.DS_Store
+*.pem
 Thumbs.db
+
+# Certificates
+*.pem
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Build files
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Package manager locks (controversial - some prefer to commit)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml 

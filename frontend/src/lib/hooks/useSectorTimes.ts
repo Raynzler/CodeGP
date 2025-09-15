@@ -21,7 +21,7 @@ export function useSectorTimes(totalLength: number, currentPosition: number) {
       const sectorTime = Date.now() - sectorStartTime;
       setSectorTimes(prev => {
         const times = [...prev];
-        times[currentSector - 1] = sectorTime;
+        times[currentSector - 1] = sectorTime;   
         return times;
       });
       

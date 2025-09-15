@@ -1,4 +1,4 @@
-// src/lib/hooks/useTypingGame.ts
+
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { GameState, GameStats, Snippet, CharacterStatus } from '@/types/game.types';
 import { 
@@ -158,6 +158,9 @@ export function useTypingGame(snippet: Snippet) {
   const handleKeyPress = useCallback((e: KeyboardEvent) => {
   if (isMobile) return;
   if (isPaused) return;
+  if (document.querySelector('[data-auth-modal="true"]')) {
+    return;
+  }
   
   // Prevent space from scrolling the page
   if (e.key === ' ') {
