@@ -137,7 +137,7 @@ func saveResults(w http.ResponseWriter, r *http.Request) {
     // Send success response
     response := map[string]interface{}{
         "success": true,
-        "message": "Race result saved!",
+        "message": "Race result saved! You are max!",
         "wpm":     result.WPM,
     }
     
