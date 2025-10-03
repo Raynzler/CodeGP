@@ -57,7 +57,7 @@ func main() {
 func healthHandler(w http.ResponseWriter, r *http.Request) {
     response := map[string]string{
         "status":  "OK",
-        "message": "CodeGP Backend is racing!",
+        "message": "CodeGP Backend is racing! FIA in action! 🏁",
     }
     
     w.Header().Set("Content-Type", "application/json")
