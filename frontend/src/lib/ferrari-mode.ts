@@ -8,7 +8,7 @@ export function activateFerrariMode(
     () => setText(originalText.replace(/function/g, 'funzione')),
     () => setText(originalText.replace(/\./g, ',')),
     () => setText(originalText.replace(/;/g, '；')), // Sneaky full-width semicolon
-    () => setText("// We are checking..."),
+    () => setText("// Copy!We are checking..."),
   ];
   
   const randomMistake = mistakes[Math.floor(Math.random() * mistakes.length)];
