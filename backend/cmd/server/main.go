@@ -33,7 +33,7 @@ func enableCORS(next http.HandlerFunc) http.HandlerFunc {
         
         // Handle preflight requests
         if r.Method == "OPTIONS" {
-            w.WriteHeader(http.StatusOK)
+           w.WriteHeader(http.StatusOK)
             return
         }
         
